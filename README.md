@@ -1,97 +1,52 @@
-# Pharmaceutical RAG Assistant
+# Service pharmaceutical company customer support Agent
 
-A Retrieval-Augmented Generation (RAG) assistant built for Service Pharmaceutical Company (SPC) to make pharmaceutical and organizational information easier to access for both employees and customers.
+
+
+An AI-powered Retrieval-Augmented Generation (RAG) assistant designed to help pharmaceutical company customers quickly access relevant product information through natural-language conversations.
 
 ## Overview
 
-Pharmaceutical companies manage large amounts of information, including company policies, product information, active pharmaceutical ingredients, formulations, quality procedures, and other operational documents.
+Pharmaceutical companies manage large amounts of product information, including product details, active ingredients, uses, formulations, availability, and other relevant information.
 
-Accessing this information manually can be slow and inconsistent, especially for new employees or when responding to customer inquiries.
+Finding and providing this information manually can require repeated searching and effort from customer support teams. This can make the support process slower and less efficient.
 
-This project uses RAG to provide a conversational interface that retrieves relevant information from the company's knowledge base and uses it to generate responses.
+This project demonstrates how an AI-powered customer support assistant can provide customers with a more accessible way to retrieve relevant pharmaceutical product information through a conversational interface.
 
 ## The Problem
 
-SPC employees may need to search through multiple documents to find specific company or pharmaceutical information. New employees may also be unfamiliar with where to find important policies and procedures.
+Customers may have questions about pharmaceutical products, ingredients, uses, availability, and other product information.
 
-The company also receives customer inquiries that require access to accurate product and pharmaceutical information.
+When this information has to be manually searched for and provided by support teams, it can result in slower responses and repetitive work.
 
-The goal was to create a single system that makes this information easier to access while reducing the need for manual searching.
+The goal of this project was to create a conversational system that allows customers to ask questions naturally and receive relevant information from the company's pharmaceutical knowledge base.
 
 ## The Solution
 
-The Pharmaceutical RAG Assistant connects a conversational AI interface to a centralized knowledge base.
+I built a conversational AI assistant connected to a centralized pharmaceutical knowledge base.
 
-Company documents are stored in Google Drive and processed into a searchable vector database using Pinecone. When a user asks a question, the system retrieves relevant information from the knowledge base and provides it to the AI model as context for generating the response.
+When a customer submits a question, the system:
 
-The assistant can serve two main use cases:
+1. Receives the customer's question.
+2. Searches the knowledge base for relevant information.
+3. Retrieves the most relevant context using vector search.
+4. Passes the retrieved information to the AI model.
+5. Generates a context-aware response for the customer.
 
-### 1. Employee Knowledge Assistant
-
-Employees can ask questions about:
-
-- Company policies
-- Pharmaceutical products
-- Active pharmaceutical ingredients
-- Formulations
-- Quality procedures
-- Operational information
-- Other internal documentation
-
-This provides employees with a faster way to find information without manually searching through documents.
-
-### 2. Customer Assistant
-
-The same knowledge-based approach can be used to respond to customer inquiries using relevant pharmaceutical and product information from the knowledge base.
+This approach allows the AI assistant to provide responses based on the information contained in the connected knowledge base rather than relying solely on the model's general knowledge.
 
 ## How It Works
 
-Google Drive
-↓
-Company & Pharmaceutical Documents
-↓
-Document Processing
-↓
-Pinecone Vector Database
-↓
-User Question
-↓
-Relevant Information Retrieved
-↓
-AI Model
-↓
-Context-Aware Response
-
-## Key Features
-
-- Retrieval-Augmented Generation (RAG)
-- Document-based knowledge retrieval
-- Pinecone vector database integration
-- Google Drive knowledge source
-- Conversational question answering
-- Internal employee knowledge support
-- Customer inquiry support
-- Context-aware AI responses
-
-## Tools & Technologies
-
-- n8n
-- Pinecone
-- Google Drive
-- AI/LLM
-- APIs
-- Webhooks
-- JSON
-- Vector Search
-
-## Project Focus
-
-The project focuses on making existing pharmaceutical and organizational knowledge easier to access through a conversational interface while maintaining a structured retrieval process behind the scenes.
-
-## Project Type
-
-Independent Project
-
-## Disclaimer
-
-This project is a demonstration of a RAG-based knowledge retrieval system. It is not intended to replace professional pharmaceutical, medical, or clinical judgment.
+```text
+Customer Question
+       ↓
+      n8n
+       ↓
+Knowledge Retrieval
+       ↓
+    Pinecone
+       ↓
+ Relevant Context
+       ↓
+    AI / LLM
+       ↓
+Customer Response
